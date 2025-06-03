@@ -27,6 +27,16 @@ app.get("/", function(req, res){
   res.render("harid");
 });
 
+app.post("/create-form", function(req, res){
+  const list = req.headers;
+  console.log(list);
+  res.json({test: req.body});
+})
+
+app.get("/gift", function(req, res){
+  res.end(`<h1/ style="color:green">Siz Sovg'lar bolimidasiz!</h1>`);
+})
+
 app.get("/author", (req, res) => {
   res.render("author", {user: user});
 })
