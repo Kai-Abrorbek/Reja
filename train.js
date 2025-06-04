@@ -1,40 +1,40 @@
-console.log("Jack Ma maslahatlari");
-const list = [
-  "yaxshi talaba bo'ling", // 0-20
-  "togri boshliq tanlang va koproq hato qiling", // 20-30
-  "uzingizga ishlashni boshlang", // 30-40
-  "siz kuchli bolgan narsalarni qiling", // 40-50
-  "yoshlarga investitsiya qiling", // 50-60
-  "endi dam oling, foydasi yoq" // 60
-]
+// console.log("Jack Ma maslahatlari");
+// const list = [
+//   "yaxshi talaba bo'ling", // 0-20
+//   "togri boshliq tanlang va koproq hato qiling", // 20-30
+//   "uzingizga ishlashni boshlang", // 30-40
+//   "siz kuchli bolgan narsalarni qiling", // 40-50
+//   "yoshlarga investitsiya qiling", // 50-60
+//   "endi dam oling, foydasi yoq" // 60
+// ]
 
 // SYNC function
-function maslahatBering(a,callback){
-  if (typeof a !== "number") callback("Insert a number", null);
-  else if (a <= 20) callback(null, list[0]);
-  else if (a >= 20 && a <= 30) callback(null, list[1]);
-  else if (a >= 30 && a <= 40) callback(null, list[2]);
-  else if (a >= 40 && a <= 50) callback(null, list[3]);
-  else if (a >= 50 && a <= 60) callback(null, list[4]);
-  else {
-    setInterval(()=> {
-      callback(null, list[5]);
-    }, 1000);
-    // setTimeout(()=> {
-    //   callback(null, list[5]);
-    // }, 5000);
-  }
-}
+// function maslahatBering(a,callback){
+//   if (typeof a !== "number") callback("Insert a number", null);
+//   else if (a <= 20) callback(null, list[0]);
+//   else if (a >= 20 && a <= 30) callback(null, list[1]);
+//   else if (a >= 30 && a <= 40) callback(null, list[2]);
+//   else if (a >= 40 && a <= 50) callback(null, list[3]);
+//   else if (a >= 50 && a <= 60) callback(null, list[4]);
+//   else {
+//     setInterval(()=> {
+//       callback(null, list[5]);
+//     }, 1000);
+//     // setTimeout(()=> {
+//     //   callback(null, list[5]);
+//     // }, 5000);
+//   }
+// }
 
-console.log("passed here: 0");
-maslahatBering(65, (err, data) => {
-  if(err){
-    console.log("ERROR: ", err)
-  }else{
-    console.log("Javob: ",data);
-  }
-})
-console.log("passed here: 1");
+// console.log("passed here: 0");
+// maslahatBering(65, (err, data) => {
+//   if(err){
+//     console.log("ERROR: ", err)
+//   }else{
+//     console.log("Javob: ",data);
+//   }
+// })
+// console.log("passed here: 1");
 
 // // ASYNC function
 // async function maslahatBering(a){
@@ -76,3 +76,31 @@ console.log("passed here: 1");
 
 // run();
 
+
+// =========================================== //
+// A-TASK:  
+/*  Shunday 2 parametrli function tuzing, 
+    hamda birinchi parametrdagi letterni ikkinchi
+    parametrdagi sozdan qatnashga sonini
+    return qilishi kerak boladi. */
+
+// masalani yechimi:
+function countLetter(char, str){
+  if(typeof char !== 'string' || char.length !== 1) {
+    console.log("The first parameter must be a single character.");
+  }else if(typeof str !== 'string') {
+    console.log("The second parameter must be a string.");
+  }
+
+  let count = 0;
+  for(let i=0; i< str.length; i++){
+    if(str[i] === char){
+      count++;
+    }
+  }
+  return count;
+}
+
+let result = countLetter("r", "abrorbek");
+console.log(result);
+// =========================================== //
