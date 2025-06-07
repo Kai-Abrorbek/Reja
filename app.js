@@ -27,19 +27,33 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 // 4 Routing Code
 app.get("/", function(req, res){
-  res.render("reja");
+  console.log("user entered /");
+  db.collection("plans").find().toArray((err, data) => {
+    if(err){
+      console.log(err);
+      res.end("something went wrong");
+    }else{
+      res.render("reja", { items: data });
+    }
+  })
 });
 
 app.post("/create-form", function(req, res){
-  res.json({test: req.body});
+  console.log("user entered /create-form");
+  const new_reja = req.body;
+  db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
+    if(err){
+      console.log(err);
+      res.end("somthing went wrong");
+    }else{
+      res.end("successfully added");
+    }
+  })
 })
 
-app.get("/gift", function(req, res){
-  res.end(`<h1/ style="color:green">Siz Sovg'lar bolimidasiz!</h1>`);
-})
 
-app.get("/author", (req, res) => {
-  res.render("author", {user: user});
-})
+// app.get("/author", (req, res) => {
+//   res.render("author", {user: user});
+// })
 
 module.exports = app;
