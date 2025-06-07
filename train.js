@@ -84,23 +84,68 @@
     parametrdagi sozdan qatnashga sonini
     return qilishi kerak boladi. */
 
-// masalani yechimi:
-function countLetter(char, str){
-  if(typeof char !== 'string' || char.length !== 1) {
-    console.log("The first parameter must be a single character.");
-  }else if(typeof str !== 'string') {
-    console.log("The second parameter must be a string.");
-  }
+// // masalani yechimi:
+// function countLetter(char, str){
+//   if(typeof char !== 'string' || char.length !== 1) {
+//     console.log("The first parameter must be a single character.");
+//   }else if(typeof str !== 'string') {
+//     console.log("The second parameter must be a string.");
+//   }
 
-  let count = 0;
-  for(let i=0; i< str.length; i++){
-    if(str[i] === char){
-      count++;
-    }
-  }
-  return count;
-}
+//   let count = 0;
+//   for(let i=0; i< str.length; i++){
+//     if(str[i] === char){
+//       count++;
+//     }
+//   }
+//   return count;
+// }
 
-let result = countLetter("r", "abrorbek");
-console.log(result);
-// =========================================== //
+// let result = countLetter("r", "abrorbek");
+// console.log(result);
+// // =========================================== //
+
+/* 
+  B-TASK:   
+  Shunday function tuzing, u 1ta string parametrga ega bolsin,
+  hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
+*/
+// // masalani yechimi 1:
+// function countStr(str){
+//   if (typeof str !== "string" || str.length <= 0){
+//     console.log("Insert only strings and string length is 1 or more");
+//   }
+
+//   let count = 0;
+
+//   for(let char of str.toLowerCase()){
+//     if(char >= 'a' && char <= 'z'){
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// const result = countStr("123asd");
+// console.log(result);
+
+// ========================================//
+
+// // masalani yechimi 2:
+// function countStr(str){
+//   if (typeof str !== "string" || str.length <= 0){
+//     console.log("Insert only strings and string length is 1 or more");
+//   }
+
+//   let count = 0;
+
+//   for(let char of str.toLowerCase()){
+//     if(isNaN(Number(char))){
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// const result = countStr("123asdasdW12");
+// console.log(result);

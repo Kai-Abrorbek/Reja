@@ -24,12 +24,11 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 // 4 Routing Code
 app.get("/", function(req, res){
-  res.render("harid");
+  res.render("reja");
 });
 
 app.post("/create-form", function(req, res){
   const list = req.headers;
-  console.log(list);
   res.json({test: req.body});
 })
 
@@ -45,5 +44,5 @@ app.get("/author", (req, res) => {
 const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function(){
-  console.log("The server is running seccessfully on port: ", PORT);
+  console.log(`The server is running seccessfully on port: ${PORT}, http://localhost:${PORT}`);
 })
