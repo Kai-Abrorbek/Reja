@@ -38,16 +38,11 @@ app.get("/", function(req, res){
   })
 });
 
-app.post("/create-form", function(req, res){
-  console.log("user entered /create-form");
+app.post("/create-item", function(req, res){
+  console.log("user entered /create-item");
   const new_reja = req.body;
   db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
-    if(err){
-      console.log(err);
-      res.end("somthing went wrong");
-    }else{
-      res.end("successfully added");
-    }
+    res.json(data.ops[0]);
   })
 })
 
