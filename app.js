@@ -14,6 +14,7 @@ const fs = require("fs");
 
 // MongoDB connect
 const db = require("./server").db();
+const mongodb = require("mongodb");
 
 // 1 Kirish Code
 app.use(express.static("public"));
@@ -41,11 +42,29 @@ app.get("/", function(req, res){
 app.post("/create-item", function(req, res){
   console.log("user entered /create-item");
   const new_reja = req.body;
-  db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
+  db.collection("plans").insertOne(new_reja, (err, data) => {
     res.json(data.ops[0]);
   })
 })
 
+
+app.post("/delete-item/:id", function(req, res){
+  console.log("user entered /delete-item");
+  let delItemId = req.params.id;
+  db.collection("plans").deleteOne({_id: mongodb.ObjectId(delItemId)}, (err, data) => {
+    res.json({state:"success"});
+  })
+})
+
+
+app.post("/edit-item/:id", function(req, res){
+  console.log("user entered /edit-item");
+  let editItemId = req.params.id;
+  const newData = req.body;
+  db.collection("plans").findOneAndUpdate({_id: mongodb.ObjectId(editItemId)},{$set: {reja: newData.newInput}}, (err, data) => {
+    res.json({data: newData.newInput});
+  })
+})
 
 // app.get("/author", (req, res) => {
 //   res.render("author", {user: user});

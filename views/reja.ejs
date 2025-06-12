@@ -20,7 +20,7 @@
           autocomplete="off" 
           class="form-control mr-3" 
           style="flex:1"/>
-          <button class="btn btn-primary" style="border-radius: 20px;">
+          <button class="add-btn btn btn-primary" style="border-radius: 20px;">
             Yangi Reja Qo'shish
           </button>
         </div>
@@ -29,12 +29,12 @@
          <% items.map(function(item){ %>
           <li class="list-group-item list-group-item-info d-flex 
                   align-items-center justify-content-between">
-            <span id="item-text"> <%=item.reja.reja%> </span>
+            <span id="item-text"> <%=item.reja%> </span>
             <div>
-              <button data-id="<%=item._id%>" class="edit-me btn btn-secondary btn-sm mr-1">
+              <button id="edit-btn" data-id="<%=item._id%>" class="edit-me btn btn-secondary btn-sm mr-1">
                 Ozgartirissh
               </button>
-              <button data-id="<%=item._id%>" class="delete-me btn btn-danger btn-sm">
+              <button id="delete-btn" data-id="<%=item._id%>" class="delete-me btn btn-danger btn-sm">
                 Ochirish
               </button>
             </div>
