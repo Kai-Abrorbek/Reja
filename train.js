@@ -149,3 +149,101 @@
 
 // const result = countStr("123asdasdW12");
 // console.log(result);
+
+
+/* 
+  MITASK-C 
+    Shunday class tuzing tuzing nomi Shop, 
+    va uni constructoriga 3 hil mahsulot pass bolsin,
+    hamda classning 3ta methodi bolsin, biri qoldiq, 
+    biri sotish va biri qabul. Har bir method ishga 
+    tushgan vaqt ham log qilinsin.
+*/
+
+// masalani yechimi:
+
+const moment = require("moment");
+const nowTime = moment().format("hh:mm");
+class Shop{
+  #product_1;
+  #product_1_Cnt;
+  #product_2;
+  #product_2_Cnt;
+  #product_3;
+  #product_3_Cnt;
+  constructor(product_1, product_2, product_3){
+    this.#product_1 = product_1,
+    this.#product_1_Cnt = 0,
+    this.#product_2 = product_2,
+    this.#product_2_Cnt = 0,
+    this.#product_3 = product_3,
+    this.#product_3_Cnt = 0
+  }
+
+  qabul(product, proCount){
+    if(typeof product === "string" && typeof proCount === "number"){
+      switch (product) {
+        case this.#product_1:
+          this.#product_1_Cnt += proCount;
+          break;
+        case this.#product_2:
+          this.#product_2_Cnt += proCount;
+          break
+        case this.#product_3:
+          this.#product_3_Cnt += proCount;
+          break
+        default:
+          console.log("Notogri maxsulot kiritdingiz!");
+      }
+    }else{
+      console.log("Notogri malumot kiritdingiz");
+    }
+  };
+
+  sotish(product, proCount){
+    if(typeof product === "string" && typeof proCount === "number"){
+      switch (product) {
+        case this.#product_1:
+          this.#product_1_Cnt -= proCount;
+          break;
+        case this.#product_2:
+          this.#product_2_Cnt -= proCount;
+          break
+        case this.#product_3:
+          this.#product_3_Cnt -= proCount;
+          break
+        default:
+          console.log("Notogri maxsulot kiritdingiz!");
+      }
+    }else{
+      console.log("Notogri malumot kiritdingiz");
+    }
+  };
+
+  qoldiq(){
+    return `Horir ${nowTime}da: 
+    ${this.#product_1_Cnt}ta ${this.#product_1},
+    ${this.#product_2_Cnt}ta ${this.#product_2} va 
+    ${this.#product_3_Cnt}ta ${this.#product_3} mavjud!`
+  };
+}
+
+const newShop = new Shop("shashlik", "non", "somsa");
+
+newShop.qabul("shashlik", 5);
+newShop.qabul("non", 15);
+newShop.qabul("somsa", 25);
+newShop.sotish("somsa", 5);
+
+const qoldiq = newShop.qoldiq();
+console.log(qoldiq);
+
+
+const newShop2 = new Shop("qazi", "shorva", "osh");
+newShop2.qabul("qazi", 5);
+newShop2.qabul("shorva", 15);
+newShop2.qabul("osh", 25);
+newShop2.sotish("shorva", 5);
+
+const qoldiq2 = newShop2.qoldiq();
+console.log(qoldiq2);
