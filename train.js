@@ -257,21 +257,37 @@
   true aks holda false qaytarsin.
 */
 
-// masala yechimi:
-function checkContent(str1, str2){
-  if (str1.length !== str2.length) return false;
-  /* Pastdagi codeni chozib yozilishi!!
-    let list1 = str1.split("");
-    let list2 = str2.split("");
-    let list1sort = list1.sort();
-    let list2sort = list2.sort();
-    let list1join = list1sort.join('')
-    let list2join = list2sort.join('')
+// // masala yechimi:
+// function checkContent(str1, str2){
+//   if (str1.length !== str2.length) return false;
+//   /* Pastdagi codeni chozib yozilishi!!
+//     let list1 = str1.split("");
+//     let list2 = str2.split("");
+//     let list1sort = list1.sort();
+//     let list2sort = list2.sort();
+//     let list1join = list1sort.join('')
+//     let list2join = list2sort.join('')
 
-    return list1join === list2join;
-  */
+//     return list1join === list2join;
+//   */
   
-  return str1.split('').sort().join('') === str2.split('').sort().join('');
+//   return str1.split('').sort().join('') === str2.split('').sort().join('');
+// }
+// const result = checkContent("sssdaa", "aadsss");
+// console.log(result);
+
+// ========================================================== //
+
+/*
+  E-TASK: 
+  Shunday function tuzing, u bitta string argumentni qabul qilib 
+  osha stringni teskari qilib return qilsin.
+  MASALAN: getReverse("hello") return qilsin "olleh"
+*/
+
+function getReverse(str){
+  return str.split('').reverse().join("");
 }
-const result = checkContent("sssdaa", "aadsss");
-console.log(result);
+
+const strReverse = getReverse("hello world");
+console.log(strReverse);
