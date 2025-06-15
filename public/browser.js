@@ -62,3 +62,13 @@ document.addEventListener("click", function(e){
   }
 })
 
+
+document.querySelector(".delete-all").addEventListener("click", function(e){
+  axios
+      .post("/delete-all", {delete_all: true})
+      .then((response) => {
+        alert(response.data.state);
+        location.reload();
+      })
+      .catch((err) => {});
+})

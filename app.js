@@ -57,6 +57,13 @@ app.post("/delete-item/:id", function(req, res){
 })
 
 
+app.post("/delete-all", function(req, res){
+  console.log("user entered /delete-all");
+  db.collection("plans").deleteMany(function(){
+    res.json({state: "All information is revealed"})
+  })
+})
+
 app.post("/edit-item/:id", function(req, res){
   console.log("user entered /edit-item");
   let editItemId = req.params.id;
