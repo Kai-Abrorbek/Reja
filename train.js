@@ -1,4 +1,31 @@
 /* 
+  TASK G:
+  Yagona parametrga ega function tuzing.
+  Va bu function parametr orqalik integer ma'lumot turlariga ega bo'lgan bir arrayni qabul qilsin.
+  Ushbu function bizga arrayning tarkibidagi birinchi eng katta qiymatning indeksini qaytarsin.
+
+  MASALAN: getHighestIndex([5, 21, 12, 21 ,8]); return qiladi 1 sonini
+  Yuqoridagi misolda, birinchi indeksda 21 joylashgan.
+  Va bu 21 soni arrayning tarkibidagi birinchi eng katta son hisobladi va bizga uning indeksi 1 qaytadi.
+*/
+
+// masalani yechimi:
+function getHighestIndex(arry){
+  let maxIndex = arry[0];
+  let index = 0;
+  for(let i = 1; i < arry.length; i++){
+    if(arry[i] > maxIndex){
+      maxIndex = arry[i];
+      index = i;
+    }
+  }
+  return index;
+}
+
+const highestIndex = getHighestIndex([1, 21, 12, 21 ,8]);
+console.log(highestIndex);
+
+/* 
   TASK-F
   Yagona string argumentga ega findDoublers nomli function tuzing
   Agar stringda bittadan ortiq bir xil harflar ishtirok etgan bo'lsa
@@ -9,22 +36,22 @@
 
 */
 
-// masalani yechimi
-function findDoublers(str){
-  return new Set(str).size !== str.length
-}
+// // masalani yechimi
+// function findDoublers(str){
+//   return new Set(str).size !== str.length
+// }
 
-// masalani yechimi 2
-function findDoublers(str){
+// // masalani yechimi 2
+// function findDoublers(str){
 
-  for (let char of str) {
-    if(str.indexOf(char) !== str.lastIndexOf(char)) return true
-  }
-  return false;
-}
+//   for (let char of str) {
+//     if(str.indexOf(char) !== str.lastIndexOf(char)) return true
+//   }
+//   return false;
+// }
 
-const result = findDoublers("heelo");
-console.log(result);
+// const result = findDoublers("heelo");
+// console.log(result);
 
 // =================================================================// 
 /*
